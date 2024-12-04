@@ -9,12 +9,53 @@ body {
 .hero {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #1e3c72, #2a5298);
   color: white;
   text-align: center;
 }
+
+.animated-name {
+  font-size: 3rem;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out, slideUp 1.5s ease-out;
+}
+
+.animated-name span {
+  color: #ff9800;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff9800, 0 0 10px #ff9800;
+  }
+  to {
+    text-shadow: 0 0 15px #ff9800, 0 0 20px #ff9800;
+  }
+}
+
 
 .hero .btn {
   background: #ff9800;
