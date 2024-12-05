@@ -76,10 +76,14 @@ html {
 }
 
 .navbar {
+  width: 100%;
+  height: 70px; /* Adjust the height as needed */
+  background-color: #32bbbb; /* Example background color */
   display: flex;
-  justify-content: center;
-  background-color: rgba(58, 165, 161, 0.862);
-  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add padding for content */
+  box-shadow: 0 4px 6px hsl(178, 79%, 85%); /* Optional shadow effect */
 }
 
 .navbar ul {
