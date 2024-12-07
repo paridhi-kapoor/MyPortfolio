@@ -1,14 +1,39 @@
-import React from 'react';
+// About.js
+import React, { useState, useEffect } from 'react';
 
+// TypingEffect component
+const TypingEffect = ({ text, speed }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex((prev) => prev + 1);
+      }, speed);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [index, text, speed]);
+
+  return <span>{displayedText}</span>;
+};
+
+// About component
 const About = () => {
+  const text = `
+    Hi, I’m Paridhi Kapoor, a second-year BTech student in Mechanical Engineering at NIT Kurukshetra, with a passion for coding and web development.
+    I’m currently expanding my skills in React JS, SQL, and Data Structures & Algorithms (DSA) to build efficient and innovative digital solutions. 
+    I believe technology is an art, and I’m here to craft it beautifully.
+  `;
+
   return (
     <section id="about" className="about">
       <h2>More About Me</h2>
       <img src="profile.jpg" alt="Paridhi" />
       <p>
-      Hi, I’m Paridhi Kapoor, a second-year BTech student in Mechanical Engineering at NIT Kurukshetra, with a passion for coding and web development.<br/>
-      I’m currently expanding my skills in React JS, SQL, and Data Structures & Algorithms (DSA) to build efficient and innovative digital solutions. <br/>
-       I believe technology is an art, and I’m here to craft it beautifully.
+        <TypingEffect text={text} speed={50} />
       </p>
     </section>
   );
