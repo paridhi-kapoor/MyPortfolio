@@ -3,12 +3,12 @@ import React from 'react';
 const About = () => {
   return (
     <section id="about" className="about">
-      <h2>About Me</h2>
-      <img src="./Images/ganesha.jpg" alt="Paridhi" />
+      <h2>More About Me</h2>
+      <img src="profile.jpg" alt="Paridhi" />
       <p>
-        I'm Paridhi, a web developer who loves coding and working with React. 
-        I'm passionate about creating beautiful and functional websites. 
-        When I’m not coding, you can find me reading or enjoying a cup of coffee.
+      Hi, I’m Paridhi Kapoor, a second-year BTech student in Mechanical Engineering at NIT Kurukshetra, with a passion for coding and web development.<br/>
+      I’m currently expanding my skills in React JS, SQL, and Data Structures & Algorithms (DSA) to build efficient and innovative digital solutions. <br/>
+       I believe technology is an art, and I’m here to craft it beautifully.
       </p>
     </section>
   );

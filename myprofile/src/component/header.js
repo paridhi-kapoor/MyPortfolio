@@ -12,9 +12,10 @@ const Header = () => {
         </ul>
       </nav>
       <div className="hero">
-        <h1>Welcome to My Winter Wonderland Portfolio</h1>
-        <p>Hi, I’m Paridhi, a passionate web developer</p>
-        <button><a href="#projects">Check out my work</a></button>
+        <h1>Welcome to My Portfolio</h1>
+        <p>This is Paridhi – A passionate web developer driven by creativity and innovation.</p>
+        <button><a href="#projects">Check out my work</a></button> 
+        <button>View My CV</button>
       </div>
     </header>
   );

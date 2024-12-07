@@ -16,6 +16,10 @@ function App() {
         <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
         <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
         <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
+        <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
+        <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
+        <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
+        <div className="snowflake" style={{ '--random-x': Math.random(), '--random-rotation': Math.random() * 360 + 'deg' }}></div>
         {/* Repeat this for more snowflakes */}
       </div>
       <Header />

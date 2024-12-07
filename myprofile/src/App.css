@@ -69,14 +69,14 @@ html {
 
 /* Header */
 .header {
-  background-image: url('./Images/winter-background.png');
+  background-image: url('./Images/winter.jpg');
   background-size: cover;
   text-align: center;
   padding: 50px;
 }
 
 .navbar {
-  width: 100%;
+  width: 97%;
   height: 70px; /* Adjust the height as needed */
   background-color: #32bbbb; /* Example background color */
   display: flex;
@@ -101,27 +101,64 @@ html {
   font-size: 18px;
 }
 
+.hero {
+  background: linear-gradient(135deg, #a0c4ff, #4c8f8c); /* Soft wintery gradient */
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
 .hero h1 {
-  color: white;
-  font-size: 3em;
+  color: #ffffff; /* Crisp white for winter feel */
+  font-size: 3.5em;
   margin: 20px 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for better contrast */
+  font-family: 'Arial', sans-serif;
 }
 
 .hero button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #4c8f8c;
+  padding: 12px 25px;
+  font-size: 1.3em;
+  background-color: #3ab9ab; /* Deep teal to represent ice or frozen waters */
   border: none;
   color: white;
   cursor: pointer;
+  border-radius: 20px; /* Rounded corners for a soft feel */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth hover transition */
+  margin-right: 20px; 
 }
 
 .hero button:hover {
-  background-color: #3b6d6d;
+  background-color: #c2f0f0; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
 }
 
+/* Snowy effect */
+.hero::before {
+  content: "❄️";
+  font-size: 3em;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: snowflakes 5s linear infinite;
+}
+
+@keyframes snowflakes {
+  0% { top: -10%; opacity: 0.7; }
+  100% { top: 110%; opacity: 0.3; }
+}
+
+/* Optional: Add a snow background */
+.hero {
+  background: url('./Images/winter.jpg') no-repeat center center/cover;
+}
+
+
 /* About Section */
-.about {
+ /* .about {
   text-align: center;
   padding: 50px;
   background-color: #f5f5f5;
@@ -133,12 +170,78 @@ html {
   height: 200px;
   object-fit: cover;
   margin-bottom: 20px;
+}  */
+
+/* About.css */
+.about {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.about.fade-in {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.3s;
 }
+
+.about img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s;
+}
+
+.about p {
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #000;
+  width: 0;
+  opacity: 0;
+  animation: typing 4s steps(40) 1s forwards, fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  to {
+    width: 100%;
+  }
+}
+
+/* Cursor Effect */
+.about p::after {
+  content: "|";
+  animation: blink 0.7s infinite step-end;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+
 
 /* Projects Section */
 .projects {
@@ -150,38 +253,68 @@ html {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
-
-/* card : */
+/* Card Styling */
+.card {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column; /* Stacks content vertically */
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(253, 253, 253, 0.916); /* Light frosted effect */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: center; /* Center-aligns text inside the card */
+  padding: 20px;
+}
 
 .card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 15px; /* Adds spacing below the image */
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #00796b;
+  z-index: 2; /* Ensures the title is above the blurred background */
+}
+
+.card p {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  z-index: 2; /* Ensures the description stays visible */
 }
 
 .card a {
   color: #00796b;
   text-decoration: none;
   font-weight: bold;
-}
-
-.card {
+  padding: 10px;
+  transition: color 0.3s ease;
   position: relative;
-  width: 300px;
-  height: 400px;
-  background: rgba(255, 255, 255, 0.7); /* Light frosted effect */
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  overflow: hidden;
+  z-index: 2; /* Ensures the link stays visible above the blur */
 }
 
+.card a:hover {
+  color: #004d40; /* Darker color on hover */
+}
+
+/* Hover Effects */
 .card:hover {
   transform: scale(1.05); /* Slightly enlarge the card */
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 8px 16px rgba(44, 55, 55, 0.486);
 }
 
 .card::before {
@@ -191,17 +324,32 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.4);
-  /*-webkit-backdrop-filter: blur(8px);  Frosted glass effect for Safari */
- /* backdrop-filter: blur(8px);  Frosted glass effect */
-  transition: backdrop-filter 0.3s ease;
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent overlay */
+  transition: backdrop-filter 0.3s ease, background 0.3s ease;
+  z-index: 1; /* Ensures the overlay is behind the content */
 }
 
 .card:hover::before {
   -webkit-backdrop-filter: blur(12px); /* Stronger blur effect on hover for Safari */
   backdrop-filter: blur(12px); /* Stronger blur effect on hover */
+  background: rgba(255, 255, 255, 0.7); /* Slightly increase opacity on hover */
 }
 
+/* Ensure Content is Visible on Hover */
+.card h3,
+.card p,
+.card a {
+  transition: opacity 0.3s ease;
+}
+
+.card:hover h3,
+.card:hover p,
+.card:hover a {
+  opacity: 1; /* Ensure content remains fully visible on hover */
+}
+.card:hover a{
+  opacity: 1 ;
+}
 
 /* Skills Section */
 .skills {
@@ -253,4 +401,38 @@ html {
   color: white;
   text-align: center;
   padding: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Add space between the social icons */
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+}
+
+.social-links img {
+  width: 40px; /* Size of the social media icons */
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.1); /* Hover effect to scale the icons */
+}
+
+/* Add responsiveness */
+@media (max-width: 600px) {
+  .social-links {
+    gap: 20px; /* Adjust space between icons for smaller screens */
+  }
+
+  .social-links img {
+    width: 35px; /* Smaller icon size on mobile */
+    height: 35px;
+  }
 }
